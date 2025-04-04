@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GitHub Profile explorer</title>
+    <style>
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1,
+      h2,
+      h3 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .search-section {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+
+      .search-section input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        width: 60%;
+        border: 1px solid #ccc;
+        border-radius: 4px 0 0 4px;
+        outline: none;
+      }
+
+      .search-section button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        background: #333;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 0 4px 4px 0;
+        transition: background 0.3s;
+      }
+
+      .search-section button:hover {
+        background: #555;
+      }
+
+      .profile-section {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .profile-section .avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        object-fit: cover;
+        border: 3px solid #333;
+      }
+
+      .profile-section p {
+        margin: 5px 0;
+      }
+
+      .repos-section {
+        margin-top: 20px;
+      }
+
+      .repos-section ul {
+        list-style: none;
+        margin: 20px 0;
+      }
+
+      .repos-section ul li {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .pagination button {
+        padding: 10px 15px;
+        font-size: 14px;
+        border: none;
+        border-radius: 4px;
+        background: #333;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .pagination button:hover {
+        background: #555;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 600px) {
+        .search-section input[type="text"] {
+          width: 70%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>GitHub Explorer</h1>
+      <div class="search-section">
+        <form id="searchForm">
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter GitHub username"
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+      <div id="error"></div>
+      <div class="profile-section" id="profileSection" style="display: none">
+        <img id="avatar" src="" alt="Avatar" class="avatar" />
+        <h2 id="name">Name</h2>
+        <p id="bio">Bio: Not Available</p>
+        <p id="location">Location: Not Available</p>
+        <p id="reposCount">Public Repos: 0</p>
+        <p id="followers">Followers: 0</p>
+      </div>
+      <div class="repos-section" id="reposSection" style="display: none">
+        <h3>Repositories</h3>
+        <ul id="reposList"></ul>
+        <div class="pagination">
+          <button id="prevBtn">Previous</button>
+          <button id="nextBtn">Next</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
